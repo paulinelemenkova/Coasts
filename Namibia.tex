@@ -1,0 +1,158 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[coasts,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+
+%=================================================================
+
+% MDPI internal commands
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2024}
+\copyrightyear{2024}
+%\externaleditor{Academic Editor: Firstname Lastname}
+\datereceived{25 December 2023} 
+%\daterevised{} % Only for the journal Acoustics
+\dateaccepted{} 
+\datepublished{} 
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{gensymb} % for \textdegree
+\usepackage{tabularx}
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Title}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Title}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{Polina Lemenkova $^{1}$*\orcidA{}}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Polina Lemenkova}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{Lemenkova, P.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Department of Geoinformatics, Faculty of Digital and Analytical Sciences, Universität Salzburg, Schillerstraße 30, A-5020 Salzburg, Austria.
+}
+
+% Contact information of the corresponding author
+\corres{Correspondence: polina.lemenkova@plus.ac.at; Tel.: +43-677-6173-2772 (P.L.)}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{A single paragraph of about 200 words maximum. }
+
+% Keywords
+\keyword{keyword 1; keyword 2; keyword 3; keyword 4; keyword 5; keyword 6; keyword 7; keyword 8; keyword 9; keyword 10} 
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+\begin{document}
+
+%----------- section ----------->
+\section{Introduction}
+
+%----------- section ----------->
+\section{Materials and Methods}
+
+The data processing was performed on the MacBook Apple Sonoma (arm64). The Cooperative Computing Tools (CCTools) which enable large scale distributed computations from clusters were updated and installed using sudo as follows: 'sudo port clean cctools' and 'sudo port -v install cctools'. After the CCTools and XCode were installed and activated, necessary updates in the libSystem of MacPorts were performed including the deactivated library libunwind-headers: 'sudo port -f deactivate libunwind-headers'. The installation of the latest version of GRASS GIS 8.3.1 used in this research was performed using 'sudo port install grass'. The compilation of the GRASS GIS 8.3 included the dependancies on the essential Python's libraries and requirements of ML packages.
+
+%----------- subsection ----------->
+\subsection{Subsection}
+
+%----------- subsection ----------->
+\subsection{Subsection}
+
+%----------- subsection ----------->
+\subsection{Subsection}
+
+%----------- section ----------->
+\section{Results}
+
+%----------- section ----------->
+\section{Discussion}
+
+%----------- section ----------->
+\section{Conclusions}
+
+\funding{The publication was funded by the Editorial Office of Coasts, Multidisciplinary Digital Publishing Institute (MDPI), by providing 100\% discount for the APC of this manuscript.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{Not applicable} 
+
+\acknowledgments{The authors thank the reviewers for reading and review of this manuscript.}
+
+\conflictsofinterest{The authors declare no conflict of interest.} 
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+CCTools & Cooperative Computing Tools \\
+GRASS & Geographic Resources Analysis Support System \\
+GIS & Geographic Information System
+\end{tabular}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
+\appendix
+\section[\appendixname~\thesection]{}
+\subsection[\appendixname~\thesubsection]{}
+The appendix 
+
+\section[\appendixname~\thesection]{}
+All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+%\nocite{*}
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+\bibliography{Bibliography.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{adjustwidth}
+\end{document}
