@@ -68,10 +68,11 @@ $^{1}$ \quad Department of Geoinformatics, Faculty of Digital and Analytical Sci
 %\firstnote{Current address: Affiliation 3.} 
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{A single paragraph of about 200 words maximum. }
+\abstract{Mapping coastal regions is important for environmental assessment and monitoring spatio-temporal changes. Although the traditional cartographic methods using Geographic Information System (GIS) is applicable for image classification, the Machine Learning (ML) methods present more advantageous solutions of pattern-finding tasks such as automated detection of landscape patches in heterogeneous landscapes. This study intended to discriminate the landscape patterns along the eastern coasts of Mozambique using ML modules of Geographic Resources Analysis Support System (GRASS) GIS. The Random Forest (RF) algorithm of module 'r.learn.train' has been used to map the coastal landscapes of eastern shoreline of the Bight of Sofala, using remote sensing (RS) data at multiple temporal scales. The dataset included a time series Landsat 8-9 OLI/TIRS imagery collected at dry period during 2015, 2018 and 2023. The supervised sub-pixel classification of RS rasters was supported by the Scikit-Learn ML package of Python embedded in GRASS GIS. The Bight of Sofala is characterised by a distributed marine ecosystems with dominated swamp wetlands and mangrove forests located in the mixed saline-fresh waters along the eastern coast of Mozambique. To evaluate short-term temporal dynamics in this region, advanced methods of cartographic scripting using ML modules of GRASS GIS were applied. The methodology included the training data extraction from the raster images, supervised ML using ensemble classification and regression tree method by RF and cross-validation tasks. Technically, the paper demonstrated the advantages of using the ML algorithm for RS data classification for environmental monitoring of coastal areas. Specifically, the high robustness, versatility and applicability of the RF algorithm is useful for processing satellite images in the shoreline regions with sensitive environmental parameters. Due to sensitivity of RF to noise and outliers in the pixel matrix, its application to image processing is beneficial for reducing overfitting by averaging multiple decision trees. This resulted in reduced data processing time and increased accuracy of Landsat 8-9 OLI/TIRS imagery. The integration of Earth Observation data, processed using multiple decision tree classifier using ML methods and land cover characteristics enabled to detect recent changes in the coastal ecosystem of Mozambique, East Africa.
+}
 
 % Keywords
-\keyword{keyword 1; keyword 2; keyword 3; keyword 4; keyword 5; keyword 6; keyword 7; keyword 8; keyword 9; keyword 10} 
+\keyword{Machine Learning; GRASS GIS; Scikit-Learn; random forest; satellite image; image processing; Python; keyword 8; keyword 9; keyword 10} 
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -86,7 +87,7 @@ $^{1}$ \quad Department of Geoinformatics, Faculty of Digital and Analytical Sci
 %----------- section ----------->
 \section{Materials and Methods}
 
-The data processing was performed on the MacBook Apple Sonoma (arm64). The Cooperative Computing Tools (CCTools) which enable large scale distributed computations from clusters were updated and installed using sudo as follows: 'sudo port clean cctools' and 'sudo port -v install cctools'. After the CCTools and XCode were installed and activated, necessary updates in the libSystem of MacPorts were performed including the deactivated library libunwind-headers: 'sudo port -f deactivate libunwind-headers'. The installation of the latest version of GRASS GIS 8.3.1 used in this research was performed using 'sudo port install grass'. The compilation of the GRASS GIS 8.3 included the dependancies on the essential Python's libraries and requirements of ML packages.
+The data processing was performed on the MacBook Apple Sonoma (arm64). The Cooperative Computing Tools (CCTools) which enable large scale distributed computations from clusters were updated and installed using sudo as follows: 'sudo port clean cctools' and 'sudo port -v install cctools'. After the CCTools and XCode were installed and activated, necessary updates in the libSystem of MacPorts were performed including the deactivated library libunwind-headers: 'sudo port -f deactivate libunwind-headers'. The installation of the latest version of GRASS GIS 8.3.1 used in this research was performed using 'sudo port install grass'. The compilation of the GRASS GIS 8.3 included the dependancies on the essential Python's libraries and requirements of ML packages. The toolchain GNU Compiler Collection (GCC) 13 was installed accordingly for code compilation, supporting library dependencies through linking and conversion of GRASS GIS scripts into the binary executable format to assembly for executable files. The wxPython was installed additionally using the 'sudo port install py311-wxpython-4.0' call from the MacPorts.
 
 %----------- subsection ----------->
 \subsection{Subsection}
@@ -125,7 +126,8 @@ The following abbreviations are used in this manuscript:\\
 \begin{tabular}{@{}ll}
 CCTools & Cooperative Computing Tools \\
 GRASS & Geographic Resources Analysis Support System \\
-GIS & Geographic Information System
+GIS & Geographic Information System \\
+GCC & GNU Compiler Collection \\
 \end{tabular}
 }
 
