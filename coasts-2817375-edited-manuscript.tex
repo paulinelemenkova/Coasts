@@ -400,7 +400,7 @@ d.out.file output=Mozambique_2023 format=jpg --overwrite
 
 {The }accuracy assessment for the unsupervised classification was performed using the 'reject' function of the `i.maxlik' modules of GRASS GIS which calculates the output raster map holding {the} reject threshold results. The~aim of this step is to evaluate the confidence level at which each cell in the raster image is categorised during the classification process. {\hl{The} algorithm} generates the reject threshold map layer which contains the index to a computed confidence level for each classified pixel in the\hl{ }satellite scene. The~{predefined confidence} intervals \hl{include} sixteen \hl{values}. The~rejection probability image indicated the values of pixels between the acceptable at one, i.e.,~the pixel is kept up to 16 which means that the pixel is~rejected.
 
-The final part of the workflow included the Machine Learning (ML) approach of Random Forest (RF) classification of GRASS GIS which was performed using a set of modules\hl{: }`r.random', `r.learn.train', `r.learn.predict', `r.category' and auxiliary modules of data processing and visualization,\hl{ }Listing \ref{lst05}. The~training of a Random Forest classification model was performed using `r.learn.train'. The~training {data} were generated from {the \hl{previous }step of}\hl{ }land cover classification{. \hl{The} scheme of} \hl{the }training pixels was applied to perform {the} classification on the target {satellite }image. The~prediction was performed using the `r.learn.predict' module {of the GRASS GIS}. 
+The final part of the workflow included the Machine Learning (ML) approach of Random Forest (RF) classification of GRASS GIS which was performed using a set of modules\hl{: }`r.random', `r.learn.train', `r.learn.predict', `r.category' and auxiliary modules of data processing and visualization,\hl{ }Listing \ref{lst05}. 
 
 \begin{listing}[H]
 \caption{GRASS GIS code for Random Forest classification of the Landsat 8-9 OLI/TIRS images using Machine Learning (ML) approach of remote sensing data processing.} 
@@ -424,16 +424,12 @@ d.out.file output=RF_Mozambique_2015 format=jpg --overwrite
 \end{lstlisting}
 \end{listing}\vspace{-19pt}
 
+The~training of a Random Forest classification model was performed using `r.learn.train'. The~training {data} were generated from {the \hl{previous }step of}\hl{ }land cover classification{. \hl{The} scheme of} \hl{the }training pixels was applied to perform {the} classification on the target {satellite }image. The~prediction was performed using the `r.learn.predict' module {of the GRASS GIS}. 
+
 %----------- section ----------->
 \section{Results}
 
-Colour composites created using a combination of bands for false and natural colour composites are shown in Figure~\ref{fig05} with a case of image on 2015. The~image dates are distributed throughout the important stages of the vegetation growth period, in~order to obtain temporal profiles of each kind of land cover types for analysing the separability among classes. {The particular characteristics of Mozambique consists in its longitudinal extent with coastline stretching for ca. 2000 km from roughly 11\degree~S to 27\degree~S. Besides, the~effects from tropical ocean currents directly southwards along the length of the country affect environmental setting. Therefore, regional characteristics naturally differ along the country. Moreover, weather patterns across Mozambique are becoming increasingly changing due to the global warming and increase in temperature. Nevertheless, despite such variations, the~whole country broadly follows a southern African weather pattern, with~the wet period with heavy rainy between December and March and dry period in the period from April to late November. }Since Mozambique has a tropical climate which has two distinct seasons, the~images were taken during the dry period. Thus, the~wet season in Mozambique lasts from {November} to March while a dry season where better cloudiness conditions are observed lasts from April to {October--November}. Therefore, the~images here represent the dry period with dense vegetation~coverage.  
-
-
-The results of the classification {are} shown in Figure~\ref{fig06}{. They }were used as training data for the next step of Random Forest (RF) classification {which requires} seed data. The~land cover types {that have been} tested {in. this study }include {the following classes: }(1) mosaic cropland vegetation, (2) artificial surfaces and associated areas; (3) rainfed croplands; (4) open grasslands; (5) sparse vegetation; (6) broadleaved deciduous woodland; (7) mosaic forests, grassland and shrubland; (8) water areas; (9) needle leaved deciduous evergreen forests; (10) repeatedly or permanently flooded lands in brackish waters with broadleaved forests or shrub lands. {The }coastal areas are characterised by {the presence of }grassland or woody vegetation distributed on {areas of }regularly flooded or water logged soil which is presented by fresh, brackish or saline~water. 
-
-
-
+Colour composites created using a combination of bands for false and natural colour composites are shown in Figure~\ref{fig05} with a case of image on 2015. The~image dates are distributed throughout the important stages of the vegetation growth period, in~order to obtain temporal profiles of each kind of \hl{the} land cover types \hl{to analyse} the separability among classes. {The particular characteristics of Mozambique consists in its longitudinal extent with \hl{the} coastline stretching for ca. 2000 km\hl{, }11\degree~S to 27\degree~S. Besides, the~effects from tropical ocean currents \hl{directed} southwards along the length of the country \hl{influence} environmental setting. Therefore, regional characteristics naturally differ along the country. 
 
 \begin{figure}[H]
 \hspace{15pt}
@@ -455,10 +451,16 @@ The results of the classification {are} shown in Figure~\ref{fig06}{. They }were
 		\caption{2023}
 	\end{subfigure}%
 }
-\caption{Colour composites of the Landsat-8 OLI/TIRS image on 2015 on the coastal region of Beira, Mozambique: (\textbf{a}): Bands \hl{7-5-3}; (\textbf{b}): Bands 2-3-4; (\textbf{c}): Bands 3-4-5. Major band designations for the Landsat-8 are Band 1---Coastal aerosol; Band 2---Blue;  Band 3---Green; Band 4---Red; Band 5---Near Infrared (NIR); Band 6---Shortwave Infrared (SWIR) 1; Band 7---Shortwave Infrared (SWIR) 2.}\label{fig05}
+\caption{Colour composites of the Landsat-8 OLI/TIRS image on 2015 on the coastal region of Beira, Mozambique: (\textbf{a}): Bands 7-5-3; (\textbf{b}): Bands 2-3-4; (\textbf{c}): Bands 3-4-5. Major band designations for the Landsat-8 are Band 1---Coastal aerosol; Band 2---Blue;  Band 3---Green; Band 4---Red; Band 5---Near Infrared (NIR); Band 6---Shortwave Infrared (SWIR) 1; Band 7---Shortwave Infrared (SWIR) 2.}\label{fig05}
 \end{figure}
 
 \vspace{-6pt}
+
+\hl{Weather} patterns \hl{in} Mozambique \hl{vary} due to the global warming and increase in temperature. Nevertheless,\hl{ }the~whole country broadly follows a southern African weather pattern\hl{:}~\hl{ }wet period with heavy rainy between November and March and dry period\hl{ }from April to late November. }Since Mozambique has a tropical climate which has two distinct seasons, the~images were taken during the dry period. \hl{Better} cloudiness conditions \hl{and} dense vegetation~coverage are observed\hl{ during }dry season\hl{ as shown on} the~images\hl{.}  
+
+The results of the classification {are} shown in Figure~\ref{fig06}{. They }were used as training data for the next step of Random Forest (RF)\hl{ modelling }{which requires} seed data. The~land cover types\hl{ }include {the following classes: }(1) mosaic cropland vegetation, (2) artificial surfaces and associated areas; (3) rainfed croplands; (4) open grasslands; (5) sparse vegetation; (6) broadleaved deciduous woodland; (7) mosaic forests, grassland and shrubland; (8) water areas; (9) needle leaved deciduous evergreen forests; (10) repeatedly or permanently flooded lands in brackish waters with broadleaved forests or shrub lands. {The }coastal areas are characterised by\hl{ }grassland or woody vegetation distributed on {areas of }\hl{ }soil regularly flooded \hl{by} fresh, brackish or saline~water. 
+
+Figure~\ref{fig07} shows the result of a chi square test on accuracy \hl{assessment} of the classification on each discriminant result at various threshold levels of confidence. {The aim of the chi square test is to determine if the correlation exists between two qualitative variables \hl{and} if the existing associations are statistically significant. }When using the Maximum Likelihood classification method to classify the land cover types, the~{accuracy of the classification} depends on the quality of the training dataset and technical parameters of the {satellite }image. Thus, evaluating the accuracy analysis,\hl{ }{presents an }important {step in \hl{classification}}. The~approach to accuracy assessment\hl{ }is based on the function embedded in `i.maxlik' where\hl{ }pixels are classified according to the probability of their correct assignment to \hl{each} land cover~class\hl{.} 
 
 \begin{figure}[H]
 \hspace{15pt}
@@ -480,18 +482,11 @@ The results of the classification {are} shown in Figure~\ref{fig06}{. They }were
 		\caption{2023}
 	\end{subfigure}%
 }
-\caption{\hl{Classified} %MDPI: Please add the left bracket in the image, e.g., "1)" should be "(1)". 
- Landsat-\hl{8-9} OLI/TIRS images on the coastal region of Beira, Mozambique, partitioned into 10 classes using k-means clustering approach: (\textbf{a}): 2015; (\textbf{b}): 2018; (\textbf{c}): 2023.}\label{fig06}
+\caption{Classified %MDPI: Please add the left bracket in the image, e.g., "1)" should be "(1)". % Author's reply: corrected. Figure 6 is updated as requested.
+ Landsat-8-9 OLI/TIRS images on the coastal region of Beira, Mozambique, partitioned into 10 classes using k-means clustering approach: (\textbf{a}): 2015; (\textbf{b}): 2018; (\textbf{c}): 2023.}\label{fig06}
 \end{figure}
 
-Figure~\ref{fig07} shows the result of a chi square test on accuracy analysis of the classification on each discriminant result at various threshold levels of confidence. {The aim of the  chi square test is to determine if the correlation exists between two qualitative variables through evaluation if the existing associations are statistically significant. }When using the Maximum Likelihood classification method to classify the land cover types, the~{accuracy of the classification} depends on the quality of the training dataset and technical parameters of the {satellite }image. Thus, evaluating the accuracy analysis, in~this case using the chi square test, {presents a} very important {step in accuracy assessment}. The~approach to accuracy assessment used in this work is based on the function embedded in `i.maxlik' where the pixels are classified according to the probability of their correct assignment to the land cover~classes. 
-
-
-
-Hence, as~can be seen in Figure~\ref{fig07}, the~raster maps for three years---2015, 2018 and 2023 {hold} the reject threshold results where the lowest rejection values indicate as corrected classified pixels that should be kept while the highest rejection values indicate the pixels that might be erroneously classified. The~analysis of Figure~\ref{fig07} indicates that the {majority of the} correctly indicated pixels {belongs} to the river and inner water classes as well as vegetation types with distinct separability properties{. In~contrast,} the least secure pixels belong to the tidal region in the coastal waters due to the spectral properties of shelf water areas where pixels {might} be misclassified {and }with other land cover types {due to the high similarity of spectral reflectance values}. This method is suitable for providing sufficient estimation on the accuracy of training samples that were used for the final steps of {classification using Random Forest which is} shown in Figure~\ref{fig08}.  
-
-The resulting images of Random Forest classification of Landsat \hl{8-9} OLI/TIRS images by ML approach of GRASS GIS for years 2015, 2018 and 2023 are presented in Figure~\ref{fig08}. 
-
+\hl{As}~can be seen in Figure~\ref{fig07} \hl{showing} reject threshold results, \hl{the }lowest rejection values \hl{on }the~raster maps for three years---2015, 2018 and 2023 indicate \hl{the correctly} classified pixels\hl{ }while the highest rejection values indicate the erroneously classified pixels\hl{.} The~analysis of Figure~\ref{fig07} indicates that the {majority of the} correctly indicated pixels {belongs} to the river and inner water classes as well as vegetation types with distinct separability properties{. In~contrast,} the least secure pixels belong to the tidal region in the coastal waters due to the spectral properties of shelf water areas where pixels {might} be misclassified {and }with other land cover types {due to the high similarity of spectral reflectance values}. 
 
 \begin{figure}[H]
 \hspace{15pt}
@@ -513,15 +508,13 @@ The resulting images of Random Forest classification of Landsat \hl{8-9} OLI/TIR
 		\caption{2023}
 	\end{subfigure}%
 }
-\caption{\hl{Accuracy} %MDPI: Please add the left bracket in the image, e.g., "1)" should be "(1)".
- assessment using the rejection probability for pixels classified using k-means clustering method for Landsat-\hl{8-9} OLI/TIRS images on the coastal region of Beira, Mozambique: (\textbf{a}):~2015; (\textbf{b}): 2018; (\textbf{c}): 2023.}\label{fig07}
+\caption{Accuracy %MDPI: Please add the left bracket in the image, e.g., "1)" should be "(1)". % Author's reply: corrected. Figure 7 is updated as requested.
+ assessment using the rejection probability for pixels classified using k-means clustering method for Landsat 8-9 OLI/TIRS images on the coastal region of Beira, Mozambique: (\textbf{a}):~2015; (\textbf{b}): 2018; (\textbf{c}): 2023.}\label{fig07}
 \end{figure}
 
 \vspace{-6pt}
 
-
-
-
+This method is suitable for providing \hl{the} sufficient estimation on the accuracy of training samples that were used for the final steps of {classification using Random Forest}\hl{. }The resulting images of Random Forest classification of Landsat \hl{8-9} OLI/TIRS images by ML approach of GRASS GIS for years 2015, 2018 and 2023 are presented in Figure~\ref{fig08}. 
 
 \begin{figure}[H]
 \hspace{15pt}
@@ -543,8 +536,8 @@ The resulting images of Random Forest classification of Landsat \hl{8-9} OLI/TIR
 		\caption{2023}
 	\end{subfigure}%
 }
-\caption{\hl{Random} %MDPI: Please add the left bracket in the image, e.g., "1)" should be "(1)".
- Forest classification using Machine Learning (ML) approach of GRASS GIS for the Landsat-\hl{8-9} OLI/TIRS images on coastal region of Beira, Mozambique: (\textbf{a}): 2015; (\textbf{b}): 2018; (\textbf{c}): 2023.}\label{fig08}
+\caption{Random %MDPI: Please add the left bracket in the image, e.g., "1)" should be "(1)". % Author's reply: corrected. Figure 8 is updated as requested.
+ Forest classification using Machine Learning (ML) approach of GRASS GIS for the Landsat 8-9 OLI/TIRS images on coastal region of Beira, Mozambique: (\textbf{a}): 2015; (\textbf{b}): 2018; (\textbf{c}): 2023.}\label{fig08}
 \end{figure}
 
 Figure~\ref{fig08} shows the {results of the land cover types }classification of the coastal region of Mozambique {performed }using RF classifier approach of ML method {in} GRASS GIS. The~land cover types in Mozambique were selected for Random Forest classification with the estimator settings tab providing {the }access to the most pertinent parameters{. These} affect {previously} described algorithms where the landscape patches were classified using {the applied }Maximal Likelihood {classifier, as~described in} previous steps. Hence, the~embedded Scikit-Learn library of Python contents estimator parameters that are supplied for classification. Therefore, these parameters were tuned using a grid-search in the Landsat raster maps by inputting multiple regressors to indicate the representativeness of {the }land cover classes, uniformity or heterogeneity of patches and the classification of pixels located far from the edges of the raster~scene. 
