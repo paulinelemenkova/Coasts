@@ -366,9 +366,7 @@ d.out.file output=Mozambique_345 format=jpg --overwrite
 \end{lstlisting}
 \end{listing}\vspace{-9pt}
 
-Third, the~next step included clustering the image using the `i.cluster' module. The~computational region was set to the band of the Landsat image to match the scenes {of the satellite images}. The~bands of {the }Landsat channels were grouped using {the} `i.group' module {which is designed }for grouping the data{. Hence, the~selected bands} were used as grouped data during clustering, as~shown in Listing \ref{lst03}. The~signature file was generated using 'signaturefile' command. The~image was classified into {the }10 major classes of the classification scheme using information from FAO. After~that, the~unsupervised automated classification was performed using the `i.maxlik' module. The~complete script {of this process }is shown in Listing \ref{lst03}. 
- 
- 
+Third, the~next step included clustering the image using the `i.cluster' module. The~computational region was set to the band of the Landsat image to match the scenes {of the satellite images}. The~bands of {the }Landsat channels were grouped using {the} `i.group' module {which is designed }for grouping the data{. \hl{The}~selected bands} were used as grouped data during \hl{the }clustering \hl{process. }The~signature file was generated using \hl{the }'signaturefile' command. The~image was classified into {the }10 major classes of the classification scheme using \hl{the} information from FAO. \hl{The}~unsupervised automated classification was performed using the `i.maxlik' module. The~complete script {of this process }is shown in Listing \ref{lst03}. 
  
 \begin{listing}[H]
 \caption{GRASS GIS code for grouping bands and clustering.} 
@@ -385,9 +383,7 @@ i.maxlik group=L8_2015 subgroup=res_30m \
 \end{lstlisting}
 \end{listing}\vspace{-9pt}
 
-
-Mapping and visualization of the output data was performed using a combination of the GRASS GIS modules `d.rast', `d.legend', `r.colors', `d.mon', `g.region' and `d.out.file', as~shown for the Landsat image 2023 for map produced using classification and accuracy assessment using rejection probability classes, Listing \ref{lst04}. The~same procedure was repeated for images on 2018 and 2023{, respectively}.
-
+Mapping and visualization of the output data was performed using a combination of the GRASS GIS modules `d.rast', `d.legend', `r.colors', `d.mon', `g.region' and `d.out.file', as~shown for the Landsat image 2023 for map produced using \hl{the }classification and accuracy assessment \hl{with} rejection probability classes, Listing \ref{lst04}. The~same procedure was repeated for images on 2018 and 2023{, respectively}.
 
 \begin{listing}[H]
 \caption{GRASS GIS code for grouping bands and clustering.} 
@@ -402,9 +398,9 @@ d.out.file output=Mozambique_2023 format=jpg --overwrite
 \end{listing}\vspace{-12pt}
 
 
-{The }accuracy assessment for the unsupervised classification was performed using the 'reject' function of the `i.maxlik' modules of GRASS GIS which calculates the output raster map holding {the} reject threshold results. The~aim of this step is to evaluate the confidence level at which each cell in the raster image is categorised during the classification process. As~a result, {the algorithm} generates the reject threshold map layer which contains the index to a computed confidence level for each classified pixel in the classified satellite scene. The~{predefined confidence} intervals are sixteen. The~rejection probability image indicated the values of pixels between the acceptable at one, i.e.,~the pixel is kept up to 16 which means that the pixel is~rejected.
+{The }accuracy assessment for the unsupervised classification was performed using the 'reject' function of the `i.maxlik' modules of GRASS GIS which calculates the output raster map holding {the} reject threshold results. The~aim of this step is to evaluate the confidence level at which each cell in the raster image is categorised during the classification process. {\hl{The} algorithm} generates the reject threshold map layer which contains the index to a computed confidence level for each classified pixel in the\hl{ }satellite scene. The~{predefined confidence} intervals \hl{include} sixteen \hl{values}. The~rejection probability image indicated the values of pixels between the acceptable at one, i.e.,~the pixel is kept up to 16 which means that the pixel is~rejected.
 
-The final part of the workflow included the Machine Learning (ML) approach of Random Forest (RF) classification of GRASS GIS which was performed using a set of modules `r.random', `r.learn.train', `r.learn.predict', `r.category' and auxiliary modules of data processing and visualization, as~shown in script presented in Listing \ref{lst05}. The~training of a Random Forest classification model was performed using `r.learn.train'. The~training {data} were generated from {the step of} previously done land cover classification{. This scheme of} training pixels was applied to perform {the} classification on the target {satellite }image. The~prediction was performed using the `r.learn.predict' module {of the GRASS GIS}. 
+The final part of the workflow included the Machine Learning (ML) approach of Random Forest (RF) classification of GRASS GIS which was performed using a set of modules\hl{: }`r.random', `r.learn.train', `r.learn.predict', `r.category' and auxiliary modules of data processing and visualization,\hl{ }Listing \ref{lst05}. The~training of a Random Forest classification model was performed using `r.learn.train'. The~training {data} were generated from {the \hl{previous }step of}\hl{ }land cover classification{. \hl{The} scheme of} \hl{the }training pixels was applied to perform {the} classification on the target {satellite }image. The~prediction was performed using the `r.learn.predict' module {of the GRASS GIS}. 
 
 \begin{listing}[H]
 \caption{GRASS GIS code for Random Forest classification of the Landsat 8-9 OLI/TIRS images using Machine Learning (ML) approach of remote sensing data processing.} 
