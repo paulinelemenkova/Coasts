@@ -1,0 +1,548 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[coasts,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+
+%=================================================================
+
+% MDPI internal commands
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2024}
+\copyrightyear{2024}
+%\externaleditor{Academic Editor: Firstname Lastname}
+\datereceived{25 December 2023} 
+\daterevised{15 February 2024}
+\dateaccepted{} 
+\datepublished{} 
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{gensymb} % for \textdegree
+\usepackage{tabularx}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[para,online,flushleft]{threeparttable}
+\usepackage{array}
+\usepackage{makecell, multirow}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{adjustbox}
+\usepackage{verbatim}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\definecolor{deepgreen}{RGB}{29,122,30}
+\definecolor{mintgreen}{RGB}{192,249,192}
+\definecolor{codepurple}{RGB}{204, 0, 153}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{GainsboroPurple}{RGB}{247,176,247}
+\definecolor{LightSlateGrey}{RGB}{124,118,118}
+%    
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{LightSlateGrey},
+    keywordstyle=\color{deepgreen}\bfseries,
+    emphstyle=\color{deepred},
+    numberstyle=\tiny\color{deepmagenta},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Random Forest Classifier Algorithm of GRASS GIS for Satellite Image Processing\textcolor{blue}{: A Case Study of Mozambique, Bight of Sofala}}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Random Forest Classifier Algorithm of GRASS GIS for Satellite Image Processing\textcolor{blue}{: A Case Study of Mozambique, Bight of Sofala}}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{Polina Lemenkova $^{1}$*\orcidA{}}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Polina Lemenkova}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{Lemenkova, P.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Department of Geoinformatics, Faculty of Digital and Analytical Sciences, Universität Salzburg, Schillerstraße 30, A-5020 Salzburg, Austria.
+}
+
+% Contact information of the corresponding author
+\corres{Correspondence: polina.lemenkova@plus.ac.at; Tel.: +43-677-6173-2772 (P.L.)}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{Mapping coastal regions is important for environmental assessment and monitoring spatio-temporal changes. Although \textcolor{blue}{traditional} cartographic methods using Geographic Information System (GIS) \textcolor{blue}{are} applicable for image classification, \textcolor{blue}{Machine Learning} (ML) methods present more advantageous solutions of pattern-finding tasks such as automated detection of landscape patches in heterogeneous landscapes. This study \textcolor{blue}{aims} to discriminate \textcolor{blue}{landscape} patterns along the eastern coasts of Mozambique using ML modules of Geographic Resources Analysis Support System (GRASS) GIS. The Random Forest (RF) algorithm of module 'r.learn.train' has been used to map the coastal landscapes of eastern shoreline of the Bight of Sofala, using remote sensing (RS) data at multiple temporal scales. The dataset \textcolor{blue}{includes} Landsat 8-9 OLI/TIRS imagery collected at dry period during 2015, 2018 and 2023 \textcolor{blue}{which enables to evaluate temporal dynamics}. The supervised \textcolor{blue}{classification} of RS rasters was supported by the Scikit-Learn ML package of Python embedded in GRASS GIS. The Bight of Sofala is characterised by the distributed marine ecosystems with dominated swamp wetlands and mangrove forests located in the mixed saline-fresh waters along the eastern coast of Mozambique. \textcolor{blue}{The} paper demonstrated the advantages of using the ML \textcolor{blue}{for} RS data classification \textcolor{blue}{in} environmental monitoring of coastal areas. \textcolor{blue}{The} integration of Earth Observation data, processed using multiple decision tree classifier using ML methods and land cover characteristics enabled to detect recent changes in the coastal ecosystem of Mozambique, East Africa.
+}
+
+% Keywords
+\keyword{Machine learning; ensemble learning; GRASS GIS; Scikit-Learn; Python; random forest; satellite image; image processing; Africa; image classification} 
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+\PACS{91.10.Da; 91.10.Jf; 91.10.Sp; 91.10.Xa; 96.25.Vt; 91.10.Fc; 95.40.+s; 95.75.Qr; 95.75.Rs; 42.68.Wt}
+\MSC{94A08; 68U10; 54H30; 86A30; 86-08; 86A99}
+\JEL{Y91; Q20; Q24; Q23; Q3; Q01; R11; O44; O13; Q5; Q51; Q55; N57; C6; C61}
+
+\begin{document}
+
+%----------- section ----------->
+\section{Introduction}
+
+%----------- subsection ----------->
+\subsection{Background}
+Remote sensing (RS) data has long been an important and efficient source of information in environmental monitoring \hl{being one of the main data sources for mapping and detecting patterns of biodiversity across large spatial areas} \cite{FAGAN2024432}. The information from the Earth Observation satellite missions which is provided quickly and operatively has sufficient coverage and high quality of images ensured numerous applications of RS data in modern geospatial studies and cartographic works \cite{LOEB2023}. \hl{Information derived from satellite images enables to identify landscape characteristics that affect biodiversity patterns, structural and functional properties of landscapes, spatial extent of different components of ecosystems. Such advantages of the RS data enable to use }both high-resolution and medium-resolution \hl{products} in vegetation and land cover mapping in order to detect patterns of vegetation changes, and to track ecological interactions through time series analysis \cite{6352393,info14040249,Lemenkova202324}. 
+
+\hl{Applications of RS data in environmental analysis include diverse} types of satellite images \hl{that can be used }for effective interpretation of Earth's landscapes \hl{including} Sentinel 2 Data \cite{ZHAO2024169152,Lemenkova202021,CHOUDHARY20222443}, National Oceanic and Atmospheric Administration Advanced Very High Resolution Radiometer \cite{JI2017215,ZHAN2022112836}, Satellite Pour l'Observation de la Terre (SPOT) \cite{FENSHOLT20091886}, or Landsat \cite{CHEN2023e19654,Lemenkova202323,LEMESIOS2024101153,SENAY2022113011,Lemenkova202321}, and the combinations thereof \cite{XIE2023,RADELOFF2024113918}. For instance, recent Global Land Cover 2000 map was based on the analysis of the Vegetation sensor on-board the SPOT-4 satellite using methods of digital image processing and GIS \cite{GIRI2005123,WANG2023311}. \hl{Moreover, RS data can be integrated with information on the environmental setting for analysis, mapping and modelling purposes. For instance, }Landsat scenes widely used for landscape mapping include the data which can be acquired from \hl{its }various\hl{ }sensors such as Multispectral Scanner (MSS), Thematic Mapper (TM), Enhanced Thematic Mapper Plus (ETM+) and recent product of Operational Land Imager and Thermal Infrared Sensor (OLI/TIRS) \hl{or used as data integration }\cite{HE2018181,HUSSAIN2022103117,ESTOQUE2015205}.
+
+The Landsat OLI-TIRS satellite missions measure surface reflectivity and scattering in the multi-spectral bands \hl{which results in its successful application during recent several decades} \cite{WULDER2022113195}. Its capacities to discriminate between different vegetation types has been demonstrated in previous investigations \cite{Ferreira,Montfort,Fatoyinbo,Ribeiro}. In cloud-prone and rainy areas typical for coastal regions of tropical African countries, however, the use of RS data is restricted by the atmosphere effects such as attenuation of signals and cloud coverage during wet period. \hl{Therefore, the analysis of vegetation should be based on cloud-free images or with minimised cloudiness (below 10}\%). \hl{Moreover, the remaining atmospheric effects should be minimised using advanced methods of computer vision. These include, for instance, atmospheric scattering or haze which occur as a result of the suspended dust and accumulate in relatively dry air. Such effects may lead to colour distortion on the images and worsen image quality through impaired visibility which may affect image analysis. }
+
+As a result, the processing of such data\hl{ }requires advanced methods of satellite image processing\hl{, e.g. removing noise, highlighting edges, improving image contrast through correction of atmospheric effects. This is possible using} algorithms of computer vision and Machine Learning \hl{(ML) }for data processing and visualization \hl{due to its impressive computational and spatial analysis capabilities }\cite{LI2023104653,PHAM2023104501,HAN202387}. \hl{The most essential advantage of ML techniques is that it is capable of automagical deriving information from the existing datasets. Moreover, ML methods apply programming algorithms which enables to excel in complex analysis and modelling of geospatial data} \cite{KHAN2022101678}. \hl{In the environmental studies, valuable insights of ML refer to information extraction from complex terrain and heterogeneous landscapes such as coastal regions. Such features of ML facilitate environmental analysis and enhance planning and management of the coastal zones.}
+
+Establishing new methods of Earth Observation data processing such as the ML requires the application of programming approaches which enable to automate tasks \cite{MULLISSA2023113799,Lemenkova202206}. Indeed, the integrated use of the programming scripts, ML capabilities and cartographic methods provided powerful tools for RS data processing with the aim of mapping, analysis and monitoring of coastal areas using distinctive sensor responses of land cover types. \hl{Thus, Scripting and programming approach enables to overcome the ambiguities in image classification resulting from similarities of spectral reflectance in various land cover types, and especially with the medium resolution Landsat data and maintains the high-automation streams of the modelling.} Advancements in computer processing, ML methods and the development of scripting languages such as Python, used either \emph{per se} or \hl{as }integrated \hl{tools and add-ons }in Geographic Information System (GIS) presented advanced \hl{approach to} cartography and image processing. Such methods support accurate satellite data processing and analysis which have \hl{made possible} dynamic vegetation modelling \cite{Lemenkova202227}. 
+
+%----------- subsection ----------->
+\subsection{Related works}
+Generally speaking, the accuracy of classification of vegetation types in heterogeneous landscapes using satellite images depends mainly on sensitivity of sensor backscattering to the \hl{differences} between the phenological characteristics of plant leaves\hl{. Alternatively, they also should be sensitive to the variations in} structure of other land cover types\hl{ }such as bare land or urban areas with dominating impervious surfaces\hl{. Hence, }different interaction between the sensor backscatter and the structure of the canopy of landscape patch \hl{can provide with novel information on ecological structure}. Nevertheless, many recent studies \cite{rs15235559,WU2023103407,CHEN2023101499,rs15225387,LIN2021102370}, noted the evident advantages of using the \hl{ML} methods in image processing. For instance, \cite{LIAO2023110231} found that the use of Deep Leaning (DL) modelling in remote sensing data processing could improve classification accuracies. 
+
+Earlier studies also reported that classification precision improved with applied computer vision algorithms of DL for image analysis and interpretation \cite{GUO20231,rs15215121,DOU2021102477}. Similar studies also validated the potential of the use of ML methods in cartographic\hl{ }applications \hl{of RS data processing }for mapping various vegetation classes\hl{. Thus, these methods were used for evaluation of }the optimal combination of geospatial data for separating different land cover classes \cite{BOULILA2021106014,LIN2024102618}. These and other\hl{ }results \hl{reported in previous studies }also indicated that it requires the use of Python to perform the classification and attain the required automation and accuracy level in image classification process \cite{ROBERTS2022105192,GUO2023e21542,Redoloza}. Nevertheless, improvement and flexibility is achieved in the Geographic Resources Analysis Support System (GRASS) GIS software that presents a smart combination of Python libraries with cartographic toolset and powerful image processing functionality. 
+
+\hl{Since the first version of the GRASS GIS release designed in 1984} \cite{GRASS_GIS_software}, \hl{the instrument was constantly improved, which resulted in a updated version of software 8.3.1 as a powerful geospatial data processing engine in a single integrated suite of existing modules for raster and vector data processing. Advances in technical progress and rapid development of cartographic instruments along with the development of programming algorithms resulted in various types of modules of GRASS GIS that include diverse geospatial data processing tools. The applications of such tools resulted in a variety of case studies. To mention a few of them, the use of GRASS GIS in geographic studies includes environmental monitoring} \cite{STRIGARO201668,Lemenkova202322}, \hl{time series and massive data analysis} \cite{JASIEWICZ20111525,Lemenkova202313}, \hl{hydrological modelling} \cite{JASIEWICZ20111162}, \hl{computing landscape diversity, image segmentation} \cite{Lemenkova202320,ROCCHINI201382}, \hl{and geomorphometric modelling} \cite{HOFIERKA2009387}. \hl{These few examples of the numerous application of GRASS GIS in geospatial studies prove its effectiveness for image processing and remote sensing data analysis.}
+
+%----------- subsection ----------->
+\subsection{Objectives and Motivation}
+
+\hl{The primary objective of the present research is to determine spatio-temporal changes in the land cover types of coastal Mozambique through the application of machine learning methods to remote sensing data analysis. }In view of the advantages of the ML methods briefly discussed above, \hl{this study applies} the application of such methods \hl{through presenting} the case of image processing using GRASS GIS module of r.learn.train for image classification. Specifically,\hl{ }Random Forest (RF) algorithm of ML method\hl{ is employed in this study }with an example of coastal area of Eastern Mozambique, Bight of Sofala. Using ML algorithms embedded in modules of GRASS GIS enables to perform supervised classification using training pixels of raster tiles by integrated Python Scikit-Learn library \cite{Pedregosa} for modelling vegetation in coastal areas. 
+
+\hl{The goal of this study is to develop a workflow using several modules of GRASS GIS for ML-based Random Forest techniques of image classification. To this end, the multi-spectral Landsat 8-9 OLI/TIRS images are used for land cover mapping of the coastal region of eastern Mozambique that encompasses the Bight of Sofala and cover a time gap from 2015 to 2023. Since the area is located in cloud-prone and rainy region affected by occasional floods, the data are selected during 'dry' period from August to September using optimal atmospheric conditions. Additionally, the images are corrected to improve the quality. In total, three scenes are used for classification and ML-based processing.}
+
+\hl{The main aim of this study is to evaluate short-term temporal dynamics in the region of Bight of Sofala using advanced methods of cartographic scripting by ML modules of GRASS GIS. The methodology included training data extraction from the raster images, supervised ML methods which use ensemble classification and regression tree method by RF and cross-validation tasks. Technically, this paper demonstrates the advantages of using the ML algorithms for RS data classification and cartographic mapping for environmental monitoring of coastal areas}. \hl{High robustness, versatility and applicability of the RF algorithm motivated its application for processing satellite images in the shoreline regions where sensitive environmental parameters exist. Due to the sensitivity of RF to noise and outliers in the pixel matrix, its application to image processing is beneficial for reducing overfitting by averaging multiple decision trees which is shown in this study. This resulted in reduced data processing time and increased accuracy of Landsat 8-9 OLI/TIRS imagery}. 
+
+%----------- subsection ----------->
+%\pagebreak
+\section{Study Area}
+
+This study focuses on the coastal region of Mozambique located in the western coasts of the Indian Ocean\hl{, Bight of Sofala, where the estuary of the Beira river enters the Mozambique Channel}, Figure \ref{fig01}. 
+ 
+\begin{figure}[H]
+	\centering
+		\hspace{-35pt}\includegraphics[width=11.0 cm]{Fig_01.jpg}
+\caption{Study area in the coastal region of the Bight of Sofala, Mozambique is indicated by the cyan-coloured rotated square. Mapping software: Generic Mapping Tools (GMT). Map source: author.}\label{fig01}
+\end{figure}
+ 
+Being one of the developing countries of Africa, Mozambique is notable for rapid land cover changes. Related to the environmental effects and urbanisation\hl{, }landscape dynamics has become one of the major issues of the country \hl{which is reported in many recent studies} \cite{BACAR2023,JANSEN2008308,MUCOVA2018e00447}. Located on the southeast coast of Africa, Mozambique presents a country with diverse topographical and landscape setting which includes a complex mix of inland hills and low plateaus along the narrow coastal strip, rugged highlands in the western parts of the country. \hl{Such} variability of landscapes \hl{in turn influences }vegetation \hl{structure, increases biodiversity} richness and \hl{creates }special land cover pattern \hl{which are }characteristic for\hl{ Mozambique}, Figure \ref{fig02}. 
+
+ \begin{figure}[H]
+	\centering
+		\includegraphics[width=15.0 cm]{Fig_02.jpg}
+\caption{Land cover types in Mozambique according to Food and Agriculture Organization (FAO) data. Mapping software: QGIS. Map source: author's work.}\label{fig02}
+\end{figure}
+
+Major geomorphic types include numerous highlands interspersed with plateau, covered with woodlands, and the lowlands \hl{which are }situated mostly to the south of the Zambezi River\hl{ -- }the major river of Mozambique. Zambezi roughly \hl{separates} the country into the northern and southern parts \hl{which have} distinct ecosystems. Being the fourth-longest river in Africa with complex hydrological setting, it largely affects the distribution of plants and species in the surrounding landscapes and estuary zone located to the north of the Bight of Sofala \cite{Dunham,Dunham1991,Simasiku}. The hydrology of Zambezi River is connected to the main channel and tributaries and water management from the eight surrounding countries of the basin \cite{Mbumwae}. \hl{Thus}, through the downstream and upstream of waters that change local salinity and suspended sediments, the hydrology of Zambezi strongly influences the coastal ecosystems of the Sofala Bank \cite{NEHAMA2021101891}. \hl{Nevertheless, recent construction of artificial} dams have had significant environmental effects on the major floodplains including the reduction of the water supply and river discharge \cite{Gope} as well as sedimentation of the coastal landscapes of its estuary \cite{Moore}. 
+
+The Bight of Sofala is one of the major environmentally vulnerable regions in the coastal regions of Mozambique. This is caused by the multiple impacts of climate and hydrological factors related to tidal activity. Thus, it is reported by \cite{LEAL2009605} that\hl{ }coastal ecosystem processes in the Bight of Sofala are strongly affected by the complex set of different factors. These include firstly the hydrological processes of tidal cycles, shelf circulation and coastal currents around Mozambique \cite{MALAUENE20181}. In turn, the hydrological setting of coastal ecosystems influence primary production patterns, distribution of zooplankton, phytoplankton and nutrients in the coastal waters \cite{MALAUENE2021107268}.
+
+Besides, rapid expansion of the populated areas resulting \hl{in} natural increase \hl{of} population and economic pressure \hl{drive} people to move to cities\hl{. Such social processes }results in the increased spaces occupied by urban areas rather than natural landscapes \hl{hence affecting the environment }\cite{JOKARARSANJANI201838}. Moreover, the Sofala Bank is known for the industrial shallow-water shrimp fishery \cite{SOUSA2006207,MIGUEL2003365,GAMMELSROD199291} which creates additional pressure on the coastal ecosystems through the overexploitation of natural resources. Finally, the repeated and severe floods and cyclones in the western part of the Indian Ocean have a great influence on\hl{ }landscapes and vegetation distribution \hl{within the} coastal \hl{areas of }Mozambique. As a result, Mozambique is reported to be one of the most vulnerable south African countries\hl{towards} flooding and tropical cyclones\hl{. Such climatic hazards }cause huge damage to \hl{the }infrastructure and \hl{create additional factors to the disruption of }ecosystems \cite{NHANGUMBE2023101015,SALVUCCI2020106713,Gall}. \hl{Another example of the }environmental \hl{issues in} coastal \hl{ecosystems} of Mozambique \hl{is presented by }the decline of mangroves \hl{that is caused by the cumulative effects from }the anthropogenic activities and climate change \cite{COME2023106813}. \hl{At the same time, }mangrove swamps are important source of natural resources and livelihoods for locals \hl{being the} highly productive coastal ecosystems with unique fauna and flora. Therefore, their decline and degradation negatively affect the sustainability of coastal ecosystems of Mozambique.
+
+\hl{Over the recent decades, the }consequences of floods in Mozambique include the destructions in landscape structures \cite{FICHTNER2023103329}, destroy of thousands \hl{and} crops during the flooding \hl{period}\cite{BOFANA2022112808}. \hl{Moreover, increased }landscape fragmentation \hl{resulted in physical disintegration of continuous habitats into smaller patches with decreased }patch size and isolation \hl{between single habitat clusters. The consequences of such processes negatively affect }biodiversity and species richness \cite{Guldemond}, as well as lead to the disruptions in coastal ecosystems \cite{RAMAYANTI20221025}. In social-economic aspects of Mozambique, climate-related natural hazards and disrupted landscapes affected farming sector, fishery industry, and agriculture activities in the coastal ares of Mozambique. 
+
+All these factors must be studied before establishing a new environmental monitoring system in the coastal regions of Mozambique to define the cost of landscape restoration in the affected areas and \hl{to }determine if the selected land cover types undergone changes. \hl{At the same time, }proper development planning in coastal areas of Mozambique requires \hl{costly process of }evaluating dynamics of rural and coastal landscapes and \hl{assessment} of\hl{ }climate impact on ecosystems and considering cumulative socio-environmental impacts on natural landscapes \cite{SMITH2019101976,LUNDGREN2022103023,SILVA201843,MARTINS2022102793}.\hl{ The }lowest possible cost of managing the consequences in coastal areas of Mozambique could be achieved by evaluating the difference between\hl{ }landscape types and patch analysis using image classification and quantification of landscape fragments \cite{PITTMAN2023}. This is possible using cartographic mapping and time series analysis of the satellite images \cite{XI2019111212,ABIDI2023106152,MOHAMMADI2023272}. For instance, to preserve the coastal vulnerable ecosystem of the narrow strip along the coasts of the Bight of Sofala, operative monitoring using remote sensing data can be a useful technical tool \cite{NAMAGANDA2023117811}. Land surface topography which varies significantly in Mozambique influences the distribution of the vegetation types which can be considered in agricultural planning, environmental management as well as ecological monitoring of the coastal regions. 
+
+%----------- section ----------->
+\section{Materials and Methods}
+
+\subsection{Workflow}
+In this paper, \hl{the} multi-temporal Landsat 8-9 OLI/TIRS images \hl{have been} used for land cover mapping in the coastal region of the Bight of Sofala, eastern Mozambique, West Indian Ocean. \hl{The detailed methodology included the training data extraction from the raster images, supervised ML using ensemble classification and regression tree method by RF and cross-validation tasks}.  \hl{The schematic view of the workflow in cartographic and remote sensing parts of this study is portrayed in Figure} \ref{fig03} \hl{which illustrates the main steps of data processing}.
+
+ \begin{figure}[H]
+	\centering
+		\includegraphics[width=15.0 cm]{Fig_03.jpg}
+\caption{\hl{Workflow of the data processing. Diagram software: R. Source: author's work.}}\label{fig03}
+\end{figure}
+
+The workflow is \hl{completed using GRASS GIS software and is carried} out in the following \hl{14} steps:
+
+\begin{enumerate}
+  \item Image import and interpretation \hl{using Geospatial Data Abstraction Library (GDAL) library and reprojecting the images on the fly. Since all the images must be registered in the software with a coherency to each other, the registration procedure of the Landsat images was performed using the } 'r.import' module. The metadata of the satellite images were checked for assessment of suitability and quality control: data acquisition, cloudiness and sun elevation \hl{and the extent was set up to the current region. Technically, this was done using code "r.import input=/Users/<path>/ImageName.TIF output=ImageName extent=region resolution=region". Here the path to the original image is provided in full; the resolution is set to the 30 m as for Landsat scenes}.
+  \item Image preprocessing \hl{is a fundamental approach in remote sensing data analysis which aim to prepare the images for further processing and analysis. Here,} the Landsat images were integrated with GDAL and preprocessed using the 'i.landsat.toar' GRASS GIS module which calculates the top-of-atmosphere spectral reflectance and temperature for Landsat OLI/TIRS scenes. To this end, the information on sun elevation and the date of image acquisition was used from the metadata (product date). The Digital Numbers (DN) of the image pixels were converted to the Top-of-Atmosphere Radiances (ToAR). \hl{The resulting output images processed using the 'i.landsat.toar' module had transformed DN of Landsat images which were calibrated to top-of-atmosphere reflectance.}
+  \item \hl{To analyse the land cover types visible on the Earth's surface as a representation landscape patches, colour} composites \hl{were created using bands of the satellite images}. The image composites were generated using 'r.composite' for natural and false colour composites using triplets of red, green and blue bands merged into a single composite raster map \hl{by the following code (example for band combination 7-5-3): "r.composite blue=L807 green=L805 red=L803 output=L8753 --overwrite". Here, each band was selected for each of the RGB triplets (red, green and blue) which enabled to visualise the images in various combinations (natural and false colour composites)}. 
+  \item \hl{The landscapes of coastal Mozambique are characterised by a complex mosaic of heterogeneous land cover types that often exhibit structural similarities in spectral reflectance. Therefore, }radiometric \hl{partition of images was performed} using unsupervised k-means method \hl{by the }'i.cluster' module \hl{which employs computer vision techniques for objective and automatic recognition of land cover types. This method generates spectral signatures for different land cover types using clustering algorithm that identifies the differences between various values of spectral reflectance for each pixels and assigns then to classes accordingly.}
+    \item Generating signature files for land cover types \hl{was performed }using 'signaturefile' function of the 'i.cluster' module. Spectral backscatter coefficient profiles of the land cover types were generated and compared to \hl{the }FAO classification with 10 major defined land cover classes \hl{ presented in coastal regions of Mozambique}. Here various characteristics of landscape patches were identified and compared for \hl{the }images taken at different \hl{periods as a time series analysis}.
+  \item Image classification \hl{has been performed with aim at identification of land cover classes }using the Maximum Likelihood method ('i.maxlike' module). \hl{This method was selected due to its versatility and ability to produce fast and accurate results. In essence, the MaxLike classification algorithm uses clusters generated in previous step and classifies pixels on the image in an iterative self-organising process of image partition to produce a set of spectral classes. The machine then assigns labels to the clusters automatically and presents maps using a defined colour palette}.
+  \item Generating training pixels from an older land cover classification using 'r.random' module which creates a set of raster point maps. \hl{This module creates a raster map which contains coordinates of points whose locations have been randomly determined to ensure objectivity and randomness of the representative set of pixels. Hence, it } includes randomly located cells and pixel points using non-deterministic random seed. \hl{Technically, it was implemented by the following code: "r.random input=L8CL seed=100 npoints=1000 raster=L8CLroi".}
+  \item Creating the imagery group with all Landsat OLI/TIRS \hl{multispectral }bands \hl{that have 30 m resolution and excluding panchromatic bands. This was performed }using 'i.group' module \hl{by the following code: "i.group group=L82015 input=L801,<...>,L807"}. 
+  \item \hl{Training} a Random Forest classification model using \hl{the }'r.learn.train' approach of \hl{the }ML modules of \hl{the }GRASS GIS. \hl{Practically, it was implemented using the following code: r.learn.train group=L82015 training\_map=L82015roi \\
+  model\_name=RandomForestClassifier n\_estimators=500 save\_model=rf\_model.gz}
+  \item Performing prediction using 'r.learn.predict' module of GRASS GIS\hl{. This is the essential part of the ML data processing }which uses a fitted Scikit-Learn estimator \hl{derived} from Python to raster layers in a group of images. \hl{The implementation is performed using the code: "r.learn.predict group=L8\_2015 load\_model=rf\_model.gz output=rf\_classification --overwrite". One can note that the algorithm uses the training data set generated in previous step and applis the created model "rf\_model.gz". Hence, the main goal of this step is to apply a fitted estimator from the Python's ML library Scikit-Learn to multispectral satellite images in a GRASS GIS imagery group which was generated during the step "i.group".} 
+  \item Check raster categories using module 'r.category' \hl{module which displays the category values and labels for the raster layer requested for the generated images by the command "r.category rf\_classification" and reports the data in the console output. In } this case, 10 major land cover classes of the coastal area of Mozambique were identified by the computer vision, which are automatically applied to the classification results.
+  \item Visualization of the results \hl{was performed }using \hl{the GRASS GIS }module 'r.colors' which copies colour scheme from land class training map to the output maps\hl{. For instance, the code for the maps of Random Forest classification is as follows: "r.colors rf\_classification color=plasma -e"}
+  \item Mapping the results \hl{was done }using a set of modules 'd.rast', 'd.legend' and 'd.mon' \hl{that presents the cartographic tools of GRASS GIS for mapping and data visualization on the display}. The files were \hl{then }saved using the module 'd.out.file' as bitmap graphics. \hl{For instance, data visualization included the following snippets of code: "d.rast rf\_classification d.legend raster=rf\_classification title="Random Forest: 2018" title\_fontsize=14 font="Helvetica" fontsize=12 bgcolor=white border\_color=white"}
+  \item Interpreting and discussion of the results \hl{was based on the} comparison of maps of land cover types of the Bight of Sofala, Eastern Mozambique for 2015, 2018 and 2023 \hl{to analyse spatio-temporal dynamics of land cover types in the coastal landscapes}. 
+\end{enumerate}  
+
+%----------- subsection ----------->
+\subsection{Data}
+
+In this study, three multi-temporal images of the Landsat Operational Land Imager and Thermal Infrared Sensor (OLI/TIRS) were selected \hl{to produce classification machine learning analysis. The images were chosen }due to the high quality of the data, availability \hl{of the limited high-quality 'leaf-on' data on coastal Mozambique }and coverage of \hl{the study area}. The \hl{most essential }technical characteristics of the images are summarised in Table \ref{tab01}. 
+
+\begin{table}[H]
+\caption{Identifiers (ID) of the 6 Landsat 8-9 OLI/TIRS images on \hl{the} study area \hl{of Mozambique}, obtained from the \hl{EarthExplorer} USGS repository.}
+\label{tab01}
+\footnotesize
+\begin{tabularx}{\textwidth}{p{2.6cm}ll}
+			\toprule
+			\textbf{Date} & \textbf{Landsat Product Identifier L1} & \textbf{Scene ID} \\
+			\midrule
+			9 July 2015 & \makecell{LC08\_L2SP\_167074\_20150709\_20200909\_02\_T1} & LC81670742015190LGN01 \\
+			19 September 2018 & \makecell{LC08\_L2SP\_167074\_20180919\_20200830\_02\_T1} & LC81670742018262LGN00 \\
+			24 August 2023 & \makecell{LC09\_L2SP\_167074\_20230824\_20230826\_02\_T1} & LC91670742023236LGN00 \\	
+			\bottomrule
+		\end{tabularx}
+\end{table}
+
+The images are presented in Figure \ref{fig04}. Low cloudiness and acceptable resolution depends on the acquisition techniques of Landsat ensured by the United States Geological Survey (USGS). 
+
+\begin{figure}[H]
+\hspace{50pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_04a.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.87\textwidth]{Fig_04b.jpg}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.87\textwidth]{Fig_04c.jpg}
+		\caption{2023}
+	\end{subfigure}%
+}
+\caption{Landsat images on the coastal region of Beira, Mozambique: \textbf{(a)}: 9 July 2015; \textbf{(b)}: 19 September 2018; \textbf{(c)}: 24 August 2023. The images show natural colours of the Landsat 8-9 OLI/TIRS.}\label{fig04}
+\end{figure}
+
+The \hl{values of the }cloud \hl{coverage are} 0.01, 0.11 and 0.69 for the images on 2015, 2018 and 2023, respectively. The original satellite images are stored in Universal Transverse Mercator (UTM) Zone 36 for Mozambique. The terrain data of the study area used for topographic visualization is based on the General Bathymetric Chart of the Oceans (GEBCO) grid with high spatial resolution and accuracy (15 arc seconds) and visualized as the digital terrain model Shuttle Radar Topography Mission (SRTM). The topographic names are added in accordance to the gazetteer of Digital Chart of the World (DCW).  
+
+\subsection{Software}
+
+The traditional image processing methods rely on the use of GIS \cite{GEMUSSE2023101022,LIANG2023113367,BEY2020111611}. However, such methods have some drawbacks in that\hl{ }the human-controlled maintenance of workflow is required for the whole \hl{workflow} of image pre-processing, classification and analysis, which might be hard to control in a sequence of \hl{individual }images. In contrast, script-based image processing provides information of RS data as an integral value through the automation of data processing \cite{Lemenkova202213}. An alternative approach is presented by machine learning (ML) approach which can be used as descriptors of pixel values in images and partial replacement of the traditional methods using programming \cite{jimaging9050098,Lemenkova202229}. The ML approach is based on \hl{the} algorithms of artificial intelligence which include the computer vision and statistical \hl{methods of data processing}. Therefore, this study applies the ML methods of GRASS GIS for automation of image processing.
+
+\hl{This} study \hl{uses} the latest available version of GRASS GIS 8.3.1. The installation of the program was performed using \hl{the }'sudo port install grass' with compilation \hl{that includes }the \hl{installation of the }dependancies \hl{of} the essential Python's libraries and requirements of \hl{the }ML packages. Programming is used in GRASS GIS as scripts for automation of the repeated steps of image processing \hl{to improve} the workflow \cite{technologies11020046,jmse11040871}. The data processing was performed on the MacBook Apple Sonoma (arm64 \hl{architecture}). The Cooperative Computing Tools (CCTools) which enable large scale distributed computations from clusters were updated and installed using sudo \hl{command} as follows: 'sudo port clean cctools' and 'sudo port -v install cctools'. After the CCTools and XCode were installed and activated, \hl{all the }necessary updates in the libSystem of MacPorts were performed including the deactivated library libunwind-headers: 'sudo port -f deactivate libunwind-headers'. 
+
+To employ the enhanced properties and improved functionality of GRASS GIS adjusted for satellite image processing,   the Python-based modules and the toolchain GNU Compiler Collection (GCC) \hl{were used}. The GCC 13 was installed accordingly for code compilation, supporting library dependencies through linking and conversion of GRASS GIS scripts into the binary executable format to assembly for executable files. The wxPython was installed additionally using the 'sudo port install py311-wxpython-4.0' \hl{command called} from the MacPorts. 
+
+The topographic map of the study area is made using the Generic Mapping Tools (GMT) software developed by \cite{Wessel} \hl{which presents a toolbox for geospatial data processing}. The methods used for mapping \hl{include} scripts \hl{which }are derived from the earlier works \cite{Lemenkova202217,Lemenkova202212,Lemenkova202203}. 
+
+\subsection{Scripting}
+The advanced script-based cartographic ML methods of GRASS GIS for monitoring and mapping land cover types are built on the growing demand for the time- and cost-effective approaches in cartographic workflow and remote sensing data analysis, which enable to save time and resources while processing geospatial datasets, and \hl{to }use open source satellite images. Hence, three major script-based toolsets were used in this study for geospatial data analysis and environmental monitoring of West Africa:
+
+ \begin{enumerate}
+        \item GRASS GIS module 'r.import' was used for importing the data, Listing \ref{lst01}; 
+        \item GRASS GIS module 'r.composite' was used for creating false and natural colour composites, Listing \ref{lst02}; 
+        \item GRASS GIS scripts of 'i.cluster', 'i.maxlik'  were used for unsupervised image classification and accuracy assessment using computed rejection probability classes for classified pixels, Listing \ref{lst03};  
+         \item A combination of GRASS GIS modules 'd.rast', 'd.legend', 'r.colors', 'd.mon', 'g.region' and 'd.out.file' was used for mapping the output images, Listing \ref{lst04}; 
+        \item GRASS GIS script of 'r.learn.train' was used for Random Forest classification of Machine Learning (ML)-based supervised image classification using training data generated in previous step, Listing \ref{lst05}. 
+  \end{enumerate}
+  
+The main idea is to apply in a single workflow framework both for the image processing and the cartographic mapping using scripts run from the console. This enabled to reveal the technical performance of automated geospatial data processing using programming approach of three various programming suits from the script-based software. Such approach demonstrated in this paper show that the inclusion of scripts speeds up cartographic plotting and image processing and summarises the research methodology. As mentioned earlier \cite{Lemenkova202215}, the main advantage of scripts consists in automation of the process and repeatability of the workflow for future studies. In this way, it enables to significantly save the time due to automation which is achieved by scripts. Then, using the information received from the automated image analysis and interpretation we were able to detect the changes in the analysis landscapes of eastern Mozambique for evaluation of environmental effects from climate change through the series of the images and analysed remote sensing data taken on different years (2015-2023). 
+
+First, the GRASS GIS was started from the console and the bands of the Landsat-8 OLIimage on 2015 were imported stepwise using 'r.import' module as shown in script of Listing \ref{lst01}. The same algorithm was repeated for Landsat images on 2018 and 2023.
+
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for importaing satellite images,style=mystyle,label={lst01}]
+grass
+r.import input=/Users/polinalemenkova/grassdata/Mozambique/LC08_L2SP_167074_20150709_20200909_02_T1_SR_B1.TIF output=L8_2015_01 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Mozambique/LC08_L2SP_167074_20150709_20200909_02_T1_SR_B2.TIF output=L8_2015_02 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Mozambique/LC08_L2SP_167074_20150709_20200909_02_T1_SR_B3.TIF output=L8_2015_03 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Mozambique/LC08_L2SP_167074_20150709_20200909_02_T1_SR_B4.TIF output=L8_2015_04 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Mozambique/LC08_L2SP_167074_20150709_20200909_02_T1_SR_B5.TIF output=L8_2015_05 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Mozambique/LC08_L2SP_167074_20150709_20200909_02_T1_SR_B6.TIF output=L8_2015_06 extent=region resolution=region
+r.import input=/Users/polinalemenkova/grassdata/Mozambique/LC08_L2SP_167074_20150709_20200909_02_T1_SR_B7.TIF output=L8_2015_07 extent=region resolution=region
+g.list rast
+\end{lstlisting}
+
+Second, \hl{the }colour composites have been created using Listing \ref{lst02} for false and natural colour composites with a case of image on 2015. \hl{While true colour composites show a representation of the Earth visible naturally by human eyes, false colour composites better display selected features on the Earth (e.g., discrimination between water and land surfaces) through a combination of visible red, green and blue bands that correspond to the multispectral channels of the images}.
+
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for creating color composites,style=mystyle,label={lst02}]
+r.composite blue=L8_2015_07 green=L8_2015_05 red=L8_2015_03 output=L8_2015_753 --overwrite
+d.mon wx0
+d.rast L8_2015_753
+d.out.file output=Mozambique_753 format=jpg --overwrite
+# true color
+r.composite blue=L8_2015_02 green=L8_2015_03 red=L8_2015_04 output=L8_2015_234 --overwrite
+d.mon wx0
+d.rast L8_2015_234
+d.out.file output=Mozambique_234 format=jpg --overwrite
+# false color: NIR band B05 in the red channel, red band B04 in the green channel and green band B03 in the blue channel
+r.composite blue=L8_2015_03 green=L8_2015_04 red=L8_2015_05 output=L8_2015_345 --overwrite
+d.mon wx0
+d.rast L8_2015_345
+d.out.file output=Mozambique_345 format=jpg --overwrite
+\end{lstlisting}
+
+Third, the next step included clustering the image using the 'i.cluster' module. The computational region was set to the band of the Landsat image to match the scenes \hl{of the satellite images}. The bands of \hl{the }Landsat channels were grouped using \hl{the} 'i.group' module \hl{which is designed }for grouping the data\hl{. Hence, the selected bands} were used as grouped data during clustering, as shown in Listing \ref{lst03}. The signature file was generated using 'signaturefile' command. The image was classified into \hl{the }10 major classes of the classification scheme using information from FAO. After that, the unsupervised automated classification was performed using the 'i.maxlik' module. The complete script \hl{of this process }is shown in Listing \ref{lst03}. 
+ 
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for grouping bands and clustering,style=mystyle,label={lst03}]
+g.region raster=L8_2015_01 -p
+i.group group=L8_2015 subgroup=res_30m \
+  input=L8_2015_01,L8_2015_02,L8_2015_03,L8_2015_04,L8_2015_05,L8_2015_06,L8_2015_07
+i.cluster group=L8_2015 subgroup=res_30m \
+  signaturefile=cluster_L8_2015 \
+  classes=10 reportfile=rep_clust_L8_2015.txt --overwrite
+i.maxlik group=L8_2015 subgroup=res_30m \
+  signaturefile=cluster_L8_2015 \
+  output=L8_2015_cluster_classes reject=L8_2015_cluster_reject --overwrite
+\end{lstlisting}
+
+Mapping and visualization of the output data was performed using a combination of the GRASS GIS modules 'd.rast', 'd.legend', 'r.colors', 'd.mon', 'g.region' and 'd.out.file', as shown for the Landsat image 2023 for map produced using classification and accuracy assessment using rejection probability classes, Listing \ref{lst04}. The same procedure was repeated for images on 2018 and 2023\hl{, respectively}.
+
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for grouping bands and clustering,style=mystyle,label={lst04}]
+d.mon wx0
+g.region raster=L9_2023_cluster_classes -p
+r.colors L9_2023_cluster_classes color=roygbiv -e
+d.rast L9_2023_cluster_classes
+d.legend raster=L9_2023_cluster_classes title="24 August 2023" title_fontsize=14 font="Helvetica" fontsize=12 bgcolor=white border_color=white
+d.out.file output=Mozambique_2023 format=jpg --overwrite
+\end{lstlisting}
+
+\hl{The }accuracy assessment for the unsupervised classification was performed using the 'reject' function of the 'i.maxlik' modules of GRASS GIS which calculates the output raster map holding \hl{the} reject threshold results. The aim of this step is to evaluate the confidence level at which each cell in the raster image is categorised during the classification process. As a result, \hl{the algorithm} generates the reject threshold map layer which contains the index to a computed confidence level for each classified pixel in the classified satellite scene. The \hl{predefined confidence} intervals are sixteen. The rejection probability image indicated the values of pixels between the acceptable at one, i.e. the pixel is kept up to 16 which means that the pixel is rejected.
+
+The final part of the workflow included the Machine Learning (ML) approach of Random Forest (RF) classification of GRASS GIS which was performed using a set of modules 'r.random', 'r.learn.train', 'r.learn.predict', 'r.category' and auxiliary modules of data processing and visualization, as shown in script presented in Listing \ref{lst05}. The training of a Random Forest classification model was performed using 'r.learn.train'. The training \hl{data} were generated from \hl{the step of} previously done land cover classification\hl{. This scheme of} training pixels was applied to perform \hl{the} classification on the target \hl{satellite }image. The prediction was performed using the 'r.learn.predict' module \hl{of the GRASS GIS}. 
+
+\begin{lstlisting}[language=bash,caption=GRASS GIS code for Random Forest classification of the Landsat 8-9 OLI/TIRS images using Machine Learning (ML) approach of remote sensing data processing,style=mystyle,label={lst05}]
+g.list rast
+g.region raster=L8_2015_01 -p
+r.random input=L8_2015_cluster_classes seed=100 npoints=1000 raster=training_pixels
+# Next, create the imagery group with all Landsat-8 OLI/TIRS bands:
+i.group group=L8_2015 input=L8_2015_01,L8_2015_02,L8_2015_03,L8_2015_04,L8_2015_05,L8_2015_06,L8_2015_07 --overwrite
+r.learn.train group=L8_2015 training_map=training_pixels model_name=RandomForestClassifier n_estimators=500 save_model=rf_model.gz --overwrite
+r.learn.predict group=L8_2015 load_model=rf_model.gz output=rf_classification
+# check raster categories - they are automatically applied to the classification output
+r.category rf_classification
+# copy color scheme from landclass training map to result and display
+r.colors rf_classification raster=L8_2015_classes_roi
+d.mon wx1
+r.colors rf_classification color=plasma -e
+d.rast rf_classification
+d.legend raster=rf_classification title="Random Forest: 2015" title_fontsize=14 font="Helvetica" fontsize=12 bgcolor=white border_color=white
+d.out.file output=RF_Mozambique_2015 format=jpg --overwrite
+\end{lstlisting}
+
+
+%----------- section ----------->
+\section{Results}
+
+Colour composites created using a combination of bands for false and natural colour composites are shown in Figure \ref{fig05} with a case of image on 2015. The image dates are distributed throughout the important stages of the vegetation growth period, in order to obtain temporal profiles of each kind of land cover types for analysing the separability among classes. \hl{The particular characteristics of Mozambique consists in its longitudinal extent with coastline stretching for ca. 2,000 km from roughly 11\degree S to 27\degree S. Besides, the effects from tropical ocean currents directly southwards along the length of the country affect environmental setting. Therefore, regional characteristics naturally differ along the country. Moreover, weather patterns across Mozambique are becoming increasingly changing due to the global warming and increase in temperature. Nevertheless, despite such variations, the whole country broadly follows a southern African weather pattern, with the wet period with heavy rainy between December and March and dry period in the period from April to late November. }Since Mozambique has a tropical climate which has two distinct seasons, the images were taken during the dry period. Thus, the wet season in Mozambique lasts from \hl{November} to March while a dry season where better cloudiness conditions are observed lasts from April to \hl{October-November}. Therefore, the images here represent the dry period with dense vegetation coverage.  
+
+\begin{figure}[H]
+\hspace{50pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+			\includegraphics[width=0.87\textwidth]{Fig_05a.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.87\textwidth]{Fig_05b.jpg}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.87\textwidth]{Fig_05c.jpg}
+		\caption{2023}
+	\end{subfigure}%
+}
+\caption{Colour composites of the Landsat-8 OLI/TIRS image on 2015 on the coastal region of Beira, Mozambique: \textbf{(a)}: Bands 7-5-3; \textbf{(b)}: Bands 2-3-4; \textbf{(c)}: Bands 3-4-5. Major band designations for the Landsat-8 are Band 1 - Coastal aerosol; Band 2 - Blue;  Band 3 - Green; Band 4 - Red; Band 5 - Near Infrared (NIR); Band 6 - Shortwave Infrared (SWIR) 1; Band 7 - Shortwave Infrared (SWIR) 2.}\label{fig05}
+\end{figure}
+
+The results of the classification \hl{are} shown in Figure \ref{fig06}\hl{. They }were used as training data for the next step of Random Forest (RF) classification \hl{which requires} seed data. The land cover types \hl{that have been} tested \hl{in. this study }include \hl{the following classes: }1) mosaic cropland vegetation, 2) artificial surfaces and associated areas; 3) rainfed croplands; 4) open grasslands; 5) sparse vegetation; 6) broadleaved deciduous woodland; 7) mosaic forests, grassland and shrubland; 8) water areas; 9) needle leaved deciduous evergreen forests; 10) repeatedly or permanently flooded lands in brackish waters with broadleaved forests or shrub lands. \hl{The }coastal areas are characterised by \hl{the presence of }grassland or woody vegetation distributed on \hl{areas of }regularly flooded or water logged soil which is presented by fresh, brackish or saline water. 
+
+\begin{figure}[H]
+\hspace{50pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+			\includegraphics[width=0.97\textwidth]{Fig_06a.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.97\textwidth]{Fig_06b.jpg}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.97\textwidth]{Fig_06c.jpg}
+		\caption{2023}
+	\end{subfigure}%
+}
+\caption{Classified Landsat-8-9 OLI/TIRS images on the coastal region of Beira, Mozambique, partitioned into 10 classes using k-means clustering approach: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2023.}\label{fig06}
+\end{figure}
+
+Figure \ref{fig07} shows the result of a chi square test on accuracy analysis of the classification on each discriminant result at various threshold levels of confidence. \hl{The aim of the  chi square test is to determine if the correlation exists between two qualitative variables through evaluation if the existing associations are statistically significant. }When using the Maximum Likelihood classification method to classify the land cover types, the \hl{accuracy of the classification} depends on the quality of the training dataset and technical parameters of the \hl{satellite }image. Thus, evaluating the accuracy analysis, in this case using the chi square test, \hl{presents a} very important \hl{step in accuracy assessment}. The approach to accuracy assessment used in this work is based on the function embedded in 'i.maxlik' where the pixels are classified according to the probability of their correct assignment to the land cover classes. 
+
+\begin{figure}[H]
+\hspace{50pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+			\includegraphics[width=0.97\textwidth]{Fig_07a.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.97\textwidth]{Fig_07b.jpg}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.97\textwidth]{Fig_07c.jpg}
+		\caption{2023}
+	\end{subfigure}%
+}
+\caption{Accuracy assessment using the rejection probability for pixels classified using k-means clustering method for Landsat-8-9 OLI/TIRS images on the coastal region of Beira, Mozambique: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2023.}\label{fig07}
+\end{figure}
+
+Hence, as can be seen in Figure \ref{fig07}, the raster maps for three years - 2015, 2018 and 2023 \hl{hold} the reject threshold results where the lowest rejection values indicate as corrected classified pixels that should be kept while the highest rejection values indicate the pixels that might be erroneously classified. The analysis of Figure \ref{fig07} indicates that the \hl{majority of the} correctly indicated pixels \hl{belongs} to the river and inner water classes as well as vegetation types with distinct separability properties\hl{. In contrast,} the least secure pixels belong to the tidal region in the coastal waters due to the spectral properties of shelf water areas where pixels \hl{might} be misclassified \hl{and }with other land cover types \hl{due to the high similarity of spectral reflectance values}. This method is suitable for providing sufficient estimation on the accuracy of training samples that were used for the final steps of \hl{classification using Random Forest which is} shown in Figure \ref{fig08}.  
+
+The resulting images of Random Forest classification of Landsat 8-9 OLI/TIRS images by ML approach of GRASS GIS for years 2015, 2018 and 2023 are presented in Figure \ref{fig08}. 
+
+\begin{figure}[H]
+\hspace{50pt}\makebox[0.90\linewidth][r]{%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+			\includegraphics[width=0.97\textwidth]{Fig_08a.jpg}
+		\caption{2015}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.97\textwidth]{Fig_08b.jpg}
+		\caption{2018}
+	\end{subfigure}%
+	\begin{subfigure}[b]{.40\textwidth}
+		\centering
+		\includegraphics[width=0.97\textwidth]{Fig_08c.jpg}
+		\caption{2023}
+	\end{subfigure}%
+}
+\caption{Random Forest classification using Machine Learning (ML) approach of GRASS GIS for the Landsat-8-9 OLI/TIRS images on coastal region of Beira, Mozambique: \textbf{(a)}: 2015; \textbf{(b)}: 2018; \textbf{(c)}: 2023.}\label{fig08}
+\end{figure}
+
+Figure \ref{fig08} shows the \hl{results of the land cover types }classification of the coastal region of Mozambique \hl{performed }using RF classifier approach of ML method \hl{in} GRASS GIS. The land cover types in Mozambique were selected for Random Forest classification with the estimator settings tab providing \hl{the }access to the most pertinent parameters\hl{. These} affect \hl{previously} described algorithms where the landscape patches were classified using \hl{the applied }Maximal Likelihood \hl{classifier, as described in} previous steps. Hence, the embedded Scikit-Learn library of Python contents estimator parameters that are supplied for classification. Therefore, these parameters were tuned using a grid-search in the Landsat raster maps by inputting multiple regressors to indicate the representativeness of \hl{the }land cover classes, uniformity or heterogeneity of patches and the classification of pixels located far from the edges of the raster scene. 
+
+\hl{The} advantages of the ML approach\hl{ }by Scikit-Learn library of Python \hl{ensure that} the \hl{confusion of} image \hl{pixels} is avoided as much as possible compared to the traditional classification methods. Moreover, \hl{the} training pixels generated during clustering and used to perform a RF-based classification separated the images into groups (or clusters) of pixels. These groups were used both as decision tree training seed dataset for Random Forest classifiers, and as the post-classification accuracy assessment. In this way, the RF method avoided biased reference information of the group of pixels.
+
+%----------- section ----------->
+\section{Discussion}
+
+In this study, the ML method of Random Forest classification of GRASS GIS was applied for \hl{processing and analysis of }three Landsat 8-9 OLI/TIRS images \hl{with the aim of }land cover mapping \hl{in} the coastal region of the Bight of Sofala, Mozambique. Quantitative image processing and interpretation is not an easy \hl{task} due to the complex function of \hl{multiple factors. These include, for instance, }technical parameters of the image (sun, sensor, target geometry), regional environmental effects (cloudiness, wetness, \hl{heterogeneity, }diversification and fragmentation of landscapes, or topographic ruggedness and slope curvature) and sensitivity to leaf characteristics \cite{Mitchard}. The ML approach of GRASS GIS enabled us to perform quantitative image classification using Random Forest algorithms which evaluated the similarity of pixels and assignment them into classes using 'r.learn.train' module and to obtain the statistical information from the raster data analysis representing the land cover types in Mozambique for\hl{ }years 2015, 2018 and 2023. 
+
+In turn, such algorithm enabled to model the clusters of pixels which \hl{were} used to compare the climate effects \hl{that cause} changes in land cover classes and \hl{lead to spatio-temporal }landscape \hl{dynamics}. This was achieved using the ensemble classification \hl{achieved by the approach of Random Forest algorithm}. Each tree in \hl{this} ensemble is based on a random subsample of the training data that were initially obtained using \hl{the }unsupervised classification as a part of data processing. This work is comparable with investigations done by \hl{the }related works\hl{, for instance,} in \cite{FERNANDO2023} and \cite{KOLARIK2024111445}. \hl{Moreover}, several similar studies \cite{BERA20234691,land12122149,ZHANG2023108250} investigated the complementarities of the ML approach for mapping coastal regions using a set of \hl{the }multi-resolution imagery Sentinel-2 Multispectral Instrument (MSI) and Landsat-8 OLI. To continue these studies, the experiments on image processing using Random Forest approach reported in this article have investigated the landscape dynamics in study area of eastern Mozambique using randomly-selected subset of the predictors available during each node split in the ML-based classification method of GRASS GIS. Other studies \cite{MOUNTRAKIS2023106,SINGH2021100645,ZHENG2023100974} used a neural network \hl{as a technical approach to classification of} vegetation and land cover \hl{types. Such }technique \hl{of} remote sensing data processing \hl{aim at classification of the }land cover types using ML methods and reported high accuracy. \hl{Hence, this study uses emerging technologies of scripts and programming algorithms for image processing through a series of modules of GRASS GIS.}
+
+A workflow demonstrated in this study has been developed using a short series of Landsat images. These images had various combinations of pixels which were evaluated by the ML-based methods to analyse the changes in land cover classes in the selected study area using prediction analysis. Hence, each tree of the algorithm produced a prediction and the final result of image analysis which is obtained by selecting the mean values across all of the trees in the Landsat image raster using computer vision. In other studies, a decision tree classifier was adopted to RS data processing for automatic classification using diverse software for technical improvement of the algorithm performance. For instance, \cite{BROWNDECOLSTOUN2003316} used the ensemble techniques of boosting and consensus filtering of the training data to improve the quality of the training dataset. \cite{VAIDYA2024101770} compared the integrated use of the three classification schemes based on RF, DL neural network and convolutional neural network to distinguish urban, natural and heterogeneous landscape patches. Likewise, in this study, the ExtraTreesClassifier has been used as a function of the Random Forest algorithm as a variant of the GRASS GIS ML algorithm. Here each node split during the image processing includes the selected splitting rule which is based on the most optimal solution. 
+
+Such optimization \hl{applied to} several randomly-generated thresholds by the Random Forest method \hl{presented} advantages over the traditional unsupervised methods of image classification when generating classes for image classification. For instance, \cite{PASQUARELLA2023103561} reports that parameter adjusted decision tree ensembles and \hl{RF} ensembles performed well for image segmentation and supervised and outperformed other approaches. Likewise, the improvements in the algorithms were reported by using \hl{the }improved decision tree algorithm based on\hl{ }fuzzy approach \cite{ALOBEIDAT20151192}. Although the study presented here is not intended to suggest that scripting methods replace the traditional GIS, the integration of scripting workflow of GRASS GIS with satellite image analysis tasks and cartographic plotting provides a more effective approach. Thus, this study demonstrated that the programming codes can supplement the traditional cartographic methods used in the remote sensing software for monitoring coastal areas. Moreover, this work illustrated how the analysis of land cover changes can be visualised in the automatic way using ML algorithms of GRASS GIS. 
+%----------- section ----------->
+\section{Conclusions}
+
+\hl{The use of programming for remote sensing data processing provide new perspectives of cartographic data processing. Specifically, such approaches are useful for mapping complex landscapes in the entanglement of human-based factors and environmental processes that affect coastal ecosystems. In view of this, current study presented advanced mapping approaches to spatial analysis and visulaization of remote sensing data}. \hl{The} use of the ML and intelligence classifiers of GRASS GIS increased the accuracy and precision of the produced thematic maps through the high level of automation, improved the performance of tasks using diversified modules and application of RF algorithms for coastal classifications. \hl{Using this approach}, the \hl{satellite }images were classified using \hl{the }unsupervised and supervised (with training pixels) methods of ML modules of GRASS GIS including Random Forest classifier. 
+
+The Bight of Sofala, located in the eastern coastal part of Mozambique is \hl{selected} as a test area \hl{due to the variability of landscapes, high heterogeneity of landscapes with a complex mosaic of landscape patches}. Ten types of land cover classes were identified on the \hl{Landsat satellite }images \hl{collected in years 2015, 2018 and 2023. The data were }classified using Random Forest algorithm of machine learning (ML) methods supported by Scikit-Learn library of Python integrated with GRASS GIS. The clustering approach of the machine-based classification was used for training and validation of the result of RF classification. The \hl{benefits} of the\hl{ }remote sensing data\hl{ used }for environmental monitoring \hl{consists in the fact} that \hl{they} provide the efficient way to map and visualise the remotely located regions which are otherwise difficult to reach, such as coastal regions in East Africa. Scripts of the GRASS GIS and GMT used as a standard methodological benchmark of automated image processing and cartographic workflow enabled to focus on the analysis of the coastal landscapes of Mozambique by remote sensing data processing. 
+
+The coastal region of the Bight of Sofala and \hl{its }surroundings were analysed \hl{using} the classified series of \hl{satellite }images \hl{Landsat by applied methods of }automated data analysis of ML approach. The \hl{advantage of the }proposed algorithms of GRASS GIS scripts \hl{consists in their repeatability and applicability. Thus, }using supervised classification by 'r.learn.train' module can be easily extended to other regions and environmental applications where satellite image processing is required\hl{. In this way, the method of the }ML-based classification of landscapes \hl{explained in this article can be applied in similar studies that use} multi-temporal set of \hl{satellite }images. The advanced approach of GRASS GIS scripts was introduced to evaluate the environmental properties of the coastal landscapes of Mozambique changed since 2015 to 2023. Changes in land cover types caused by climate effects in East Africa were visualised using image processing by GRASS GIS modules of 'r.learn.train' , 'i.cluster', 'i.maxlik' and other auxiliary modules. 
+
+The \hl{obtained} results \hl{visualize} the \hl{dynamical }behaviour of land cover types in the coastal landscapes of Mozambique\hl{. The} changes in patches \hl{present the} result of the climate effects reacting as driver for desertification and land degradation in \hl{these }vulnerable costal ecosystems \hl{of East Africa}. In this work we also discussed the ways in which the ML methods \hl{technically }contrast with \hl{the }traditional methods of \hl{the }unsupervised classification\hl{. For instance, these use} k-means clustering \hl{as an approach} to image analysis\hl{ }for evaluating the landscape changes using a series of images taken on different dates \hl{processed by ML tools}. Thus, \hl{it has been demonstrated that }the ML approach of GRASS GIS\hl{ has a }high automation in sequential image processing workflow which enables \hl{the }effective use of RS data for environmental monitoring of coastal regions.
+
+\funding{The publication was funded by the Editorial Office of \emph{Coasts}, Multidisciplinary Digital Publishing Institute (MDPI), by providing 100\% discount for the APC of this manuscript.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{Not applicable} 
+
+\acknowledgments{The authors thank the reviewers for reading and review of this manuscript.}
+
+\conflictsofinterest{The author declares no conflict of interest.} 
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+AVHRR & Advanced Very High Resolution Radiometer \\
+CCTools & Cooperative Computing Tools \\
+DCW & Digital Chart of the World \\
+DL & Deep Leaning \\
+DN & Digital Numbers \\
+FAO & Food and Agriculture Organization \\
+GDAL & Geospatial Data Abstraction Library \\
+GEBCO & General Bathymetric Chart of the Oceans \\ 
+GRASS & Geographic Resources Analysis Support System \\
+GIS & Geographic Information System \\
+GCC & GNU Compiler Collection \\
+GMT & Generic Mapping Tools \\
+Landsat OLI/TIRS & Landsat Operational Land Imager and Thermal Infrared Sensor \\
+Landsat MSS & Multispectral Scanner \\
+Landsat TM & Landsat Thematic Mapper\\
+ML & Machine Learning \\
+NIR & Near Infrared \\
+NOAA & National Oceanic and Atmospheric Administration \\
+RF & Random Forest \\
+Sentinel MSI & Sentinel Multispectral Instrument \\
+SPOT & Satellite Pour l'Observation de la Terre \\
+SRTM & Shuttle Radar Topography Mission \\
+SWIR & Shortwave Infrared \\
+ToAR & Top-of-Atmosphere Radiances \\ 
+USGS & United States Geological Survey\\
+UTM & Universal Transverse Mercator \\
+\end{tabular}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+%\nocite{*}
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+\bibliography{Bibliography.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{adjustwidth}
+\end{document}
