@@ -188,7 +188,7 @@ This study {is located in }the coastal {area} of Mozambique{, }western {part} of
 %		\hspace{-35pt}
 		\includegraphics[width=10.0 cm]{Fig_01.jpg}
 \caption{Study %MDPI: Please change the hyphen (-) into a minus sign ($-$, "U+2212"). e.g., "-1" should be "$-$1". % Author's reply: the map in figure 1 is corrected as requested (the hyphen (-) is changed into a minus sign ($-$, "U+2212")).
- area in the coastal region of the Bight of Sofala, Mozambique is indicated by the cyan-colored rotated square. Mapping software: \hl{Generic Mapping Tools} %MDPI: Please state the software version number, creator, and the location (city, country) from where the software was sourced.
+ area in the coastal region of the Bight of Sofala, Mozambique is indicated by the cyan-colored rotated square. Mapping software: Generic Mapping Tools, version 6.4.0, creator: \cite{Wessel}, location: Palisades, NY 10964, United States. %MDPI: Please state the software version number, creator, and the location (city, country) from where the software was sourced. %Author's reply: information is added.
  (GMT). Map source:~author.}\label{fig01}
 \end{figure}
  
@@ -381,8 +381,8 @@ d.out.file output=Mozambique_345 format=jpg --overwrite
 Third, the~next step included clustering the image using the `i.cluster' module. The~computational region was set to the band of the Landsat image to match the scenes {of the satellite images}. The~bands of {the }Landsat channels were grouped using {the} `i.group' module, {which is designed }for grouping the data{. {The}~selected bands} were used as grouped data during {the }clustering {process. }The~signature file was generated using {the }'signaturefile' command. The~image was classified into {the }10 major classes of the classification scheme using {the} information from FAO. {The}~unsupervised automated classification was performed using the `i.maxlik' module. The~complete script {of this process }is shown in Listing \ref{lst03}. 
  
 \begin{listing}[H]
-\caption{\hl{GRASS %MDPI: The captions of listings 3 and 4 are the same (GRASS GIS code for grouping bands and clustering.), Please confirm if it is correct and need to be modified.
- GIS code for grouping bands and clustering}.} 
+\caption{GRASS %MDPI: The captions of listings 3 and 4 are the same (GRASS GIS code for grouping bands and clustering.), Please confirm if it is correct and need to be modified. % Author's reply: caption for Listing 4 is corrected to "GRASS GIS code for data display, visualization and mapping". Many thanks for noticing it !
+ GIS code for grouping bands and clustering.} 
 \rule{\columnwidth}{1pt}
 \begin{lstlisting}[language=bash,caption={},style=mystyle,label={lst03}]
 g.region raster=L8_2015_01 -p
@@ -401,7 +401,7 @@ i.maxlik group=L8_2015 subgroup=res_30m \
 Mapping and visualization of the output data was performed using a combination of the GRASS GIS modules `d.rast', `d.legend', `r.colors', `d.mon', `g.region', and `d.out.file', as~shown for the Landsat image 2023 for a map produced using {the }classification and accuracy assessment {with} rejection probability classes (Listing \ref{lst04}). The~same procedure was repeated for images taken in 2018 and 2023{, respectively}.
 
 \begin{listing}[H]
-\caption{\hl{GRASS GIS code for grouping bands and clustering}.} 
+\caption{GRASS GIS code for data display, visualization and mapping.} 
 \rule{\columnwidth}{1pt}
 \begin{lstlisting}[language=bash,caption={},style=mystyle,label={lst04}]
 d.mon wx0
@@ -1498,7 +1498,7 @@ Mitchard, E.T.A.; Saatchi, S.S.; Woodhouse, I.H.; Nangendo, G.; Ribeiro, N.S.;
   Williams, M.; Ryan, C.M.; Lewis, S.L.; Feldpausch, T.R.; Meir, P.
 \newblock Using satellite radar backscatter to predict above-ground woody
   biomass: A consistent relationship across four different African landscapes.
-\newblock {\em Geophys. Res. Lett.} {\bf 2009}, {\em 36%MDPI: Please add the page number.
+\newblock {\em Geophys. Res. Lett.} {\bf 2009}, {\em 36%MDPI: Please add the page number.% Author: added (1-6)
 },~1--6.
 \newblock {\url{https://doi.org/10.1029/2009GL040692}}.
 
